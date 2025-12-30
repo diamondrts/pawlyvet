@@ -4,7 +4,6 @@ import img9 from "@/components/img/img9.png";
 import { staticData } from "../../../server/storage";
 
 const TeamComponent = () => {
-
   return (
     <>
       {/* ABOUT US */}

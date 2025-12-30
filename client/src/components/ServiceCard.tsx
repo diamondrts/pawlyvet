@@ -23,13 +23,13 @@ export function ServiceCard({ title, description, Icon, colorClass = "bg-white" 
       <p className="text-muted-foreground leading-relaxed mb-6">
         {description}
       </p>
-      
+{/*       
       <Button 
         variant="ghost" 
         className="p-0 text-primary hover:text-primary/80 hover:bg-transparent font-semibold group-hover:underline decoration-2 underline-offset-4"
       >
         Ver más detalles →
-      </Button>
+      </Button> */}
     </div>
   );
 }
