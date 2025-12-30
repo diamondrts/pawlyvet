@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Warm Pink Palette */
+  --primary: 330 85% 65%; /* #f45d94 approx - vibrant pink */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 330 40% 96%; /* Very light pink/white mix */
+  --secondary-foreground: 330 60% 30%;
+
+  --accent: 34 50% 92%; /* Cream/Beige */
+  --accent-foreground: 30 40% 20%;
+
+  --background: 330 30% 98%; /* Very subtle pinkish white */
+  --foreground: 330 20% 20%; /* Dark grey-pink for text */
+
+  --card: 0 0% 100%;
+  --card-foreground: 330 20% 20%;
+
+  --muted: 330 20% 94%;
+  --muted-foreground: 330 10% 50%;
+
+  --border: 330 20% 90%;
+  --input: 330 20% 90%;
+  --ring: 330 85% 65%;
+
+  --radius: 1rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
+    @apply font-bold text-foreground tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
