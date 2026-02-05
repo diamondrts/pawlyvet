@@ -36,7 +36,7 @@ export function Navigation() {
         <div className="flex items-center gap-2">
           <div className="bg-pink-500 p-2 rounded-full text-white">
             <PawPrint size={24} fill="currentColor" />
-          </div>
+          </div> 
           <span className="text-2xl font-bold font-[Quicksand] text-pink-500 tracking-tight">
             Pawly Vet
           </span> 
