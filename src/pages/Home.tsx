@@ -4,20 +4,19 @@ import ShopComponent from "../components/ShopComponent";
 import {
   useServices,
 } from "../hooks/use-pawly";
-import { Button } from "../components/ui/button";
 import {
   Stethoscope,
   Scissors,
   Hotel,
   ShoppingBag,
   Heart,
-  MessageCircle,
   PawPrint,
 } from "lucide-react";
 import portada from "../components/img/img4.png";
 import img8 from "../components/img/img8.png";
 import Footer from "../pages/Footer"; import TeamComponent from "../components/TeamComponent";
 import TestimonialComponent from "../components/TestimonialComponent";
+import { WhatsAppBookAppointmentButton, WhatsAppInfoButton, WhatsAppLodgingButton } from "../components/ButtonsWs";
 
 export default function Home() {
   const { data: services } = useServices();
@@ -92,20 +91,8 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                <Button
-                  size="lg"
-                  className="text-lg px-8 py-6 rounded-2xl bg-pink-500 hover:bg-pink-400 shadow-lg shadow-primary/25 hover:-translate-y-1 transition-all border-none text-white"
-                >
-                  Agenda tu cita
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-lg px-8 py-6 rounded-2xl border-2 border-pink-500 hover:border-pink-400 text-pink-500 hover:-translate-y-1 transition-all"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  WhatsApp
-                </Button>
+                <WhatsAppBookAppointmentButton serviceName="" />
+                <WhatsAppInfoButton />
               </div>
             </div>
 
@@ -195,12 +182,7 @@ export default function Home() {
                 ))}
               </ul>
 
-              <Button
-                size="lg"
-                className="bg-white text-pink-500 hover:bg-white/90 font-bold px-8 py-6 rounded-2xl shadow-xl mt-6 text-base"
-              >
-                Reservar Hospedaje
-              </Button>
+              <WhatsAppLodgingButton />
             </div>
 
             <div className="md:w-1/2 relative">
@@ -225,14 +207,14 @@ export default function Home() {
       <Footer />
 
       {/* Floating WhatsApp Button */}
-      <a
+      {/* <a
         href="https://wa.me/+18099144631"
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all z-50 flex items-center justify-center"
       >
         <MessageCircle size={32} fill="white" className="text-white" />
-      </a>
+      </a> */}
     </div>
   );
 }

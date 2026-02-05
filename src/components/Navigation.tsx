@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, PawPrint } from "lucide-react";
 import { cn } from "../lib/utils";
-import { Button } from "./ui/button";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,12 +53,6 @@ export function Navigation() {
               {link.name}
             </a>
           ))}
-          <Button 
-            className="bg-pink-500 hover:bg-ping-500 text-white rounded-full px-6 shadow-lg shadow-primary/25 cursor-pointer"
-            onClick={() => window.location.href = '#contact'}
-          >
-            Reservar
-          </Button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -84,10 +77,7 @@ export function Navigation() {
               >
                 {link.name}
               </a>
-            ))}
-            <Button className="w-full bg-[#f25aa6] text-white rounded-xl mt-4">
-              Agenda tu cita
-            </Button>
+            ))} 
           </div> 
         </div>
       )}
