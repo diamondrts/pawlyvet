@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
 import { Menu, X, PawPrint } from "lucide-react";
 import { cn } from "../lib/utils";
 import { Button } from "./ui/button";

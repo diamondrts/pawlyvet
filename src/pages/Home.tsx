@@ -3,9 +3,6 @@ import { ServiceCard } from "../components/ServiceCard";
 import ShopComponent from "../components/ShopComponent";
 import {
   useServices,
-  useProducts,
-  useTestimonials,
-  useTeam,
 } from "../hooks/use-pawly";
 import { Button } from "../components/ui/button";
 import {
@@ -19,15 +16,11 @@ import {
 } from "lucide-react";
 import portada from "../components/img/img4.png";
 import img8 from "../components/img/img8.png";
-import Footer from "../pages/Footer";import TeamComponent from "../components/TeamComponent";
+import Footer from "../pages/Footer"; import TeamComponent from "../components/TeamComponent";
 import TestimonialComponent from "../components/TestimonialComponent";
 
 export default function Home() {
   const { data: services } = useServices();
-  const { data: products } = useProducts();
-  const { data: testimonials } = useTestimonials();
-  const { data: team } = useTeam();
-
 
   // Mocks for fallback if API empty (for demo purposes)
   const defaultServices = [
@@ -85,7 +78,7 @@ export default function Home() {
               </div>
 
               <h1 className="text-5xl lg:text-7xl font-display font-bold leading-tight text-stone-600 text-balance">
-                La clínica veterinaria{" "} 
+                La clínica veterinaria{" "}
                 <span className="text-pink-500 bg-pink-100 px-4 rounded-xl inline-block -rotate-1">
                   favorita
                 </span>{" "}
@@ -166,7 +159,7 @@ export default function Home() {
         </div>
       </section>
 
-      
+
       {/* ABOUT US */}
       <TeamComponent />
 
@@ -180,7 +173,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-12 \">
             <div className="md:w-1/2 space-y-8">
               <h2 className="text-4xl md:text-5xl font-display font-bold">
-                Hotel Pawly 5 Estrellas ⭐ 
+                Hotel Pawly 5 Estrellas ⭐
               </h2>
               <p className="text-white text-xl leading-relaxed">
                 ¿Sales de viaje? Deja a tu mejor amigo en las mejores manos. Un
@@ -205,7 +198,7 @@ export default function Home() {
               <Button
                 size="lg"
                 className="bg-white text-pink-500 hover:bg-white/90 font-bold px-8 py-6 rounded-2xl shadow-xl mt-6 text-base"
-              > 
+              >
                 Reservar Hospedaje
               </Button>
             </div>
@@ -227,7 +220,7 @@ export default function Home() {
       <ShopComponent />
 
       {/* TESTIMONIALS */}
-      <TestimonialComponent/>
+      <TestimonialComponent />
 
       <Footer />
 

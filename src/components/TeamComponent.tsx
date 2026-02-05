@@ -1,11 +1,10 @@
-import img2 from "@/components/img/img2.png";
 import img3 from "@/components/img/img3.png";
 import img9 from "@/components/img/img9.png";
 import img6 from "@/components/img/img6.png";
 import { staticData } from "../server/storage";
 
 const TeamComponent = () => {
-  return (
+  return ( 
     <>
       {/* ABOUT US */}
       <section id="about" className="py-20 bg-accent/20 font-[Nunito]">

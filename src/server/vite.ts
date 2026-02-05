@@ -4,7 +4,7 @@ import { type Server } from "http";
 import fs from "fs";
 import path from "path";
 import { nanoid } from "nanoid";
-import viteConfig from "../vite.config";
+import viteConfig from "../../vite.config";
 
 const viteLogger = createLogger();
 
