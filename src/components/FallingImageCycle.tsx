@@ -103,7 +103,7 @@ const FallingImageCycle: React.FC<Props> = ({
                 style={{
                     transformOrigin: "50% 10%",
                     // transformOrigin: "top left",
-                    animation: dropping ? "pawly-drop-left 650ms ease-in forwards" : "none",
+                    animation: dropping ? "pawly-drop-left 2000ms ease-in forwards" : "none",
                 }}
                 onAnimationEnd={dropping ? handleDropEnd : undefined}
             >
