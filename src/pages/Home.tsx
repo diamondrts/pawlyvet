@@ -12,7 +12,7 @@ import {
   Heart,
   PawPrint,
 } from "lucide-react";
-import portada from "../components/img/img4.png";
+// import portada from "../components/img/img4.png";
 import img8 from "../components/img/img8.png";
 import Footer from "../pages/Footer"; import TeamComponent from "../components/TeamComponent";
 import TestimonialComponent from "../components/TestimonialComponent";
