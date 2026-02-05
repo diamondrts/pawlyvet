@@ -1,0 +1,113 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap');
+
+/* :root { 
+
+  --primary: 330 85% 65%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 330 40% 96%;
+  --secondary-foreground: 330 60% 30%;
+
+  --accent: 34 50% 92%;
+  --accent-foreground: 30 40% 20%  #47331E;
+
+  --background: 330 30% 98%;
+  --foreground: 330 20% 20%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 330 20% 20%;
+
+  --muted: 330 20% 94%;
+  --muted-foreground: 330 10% 50%;
+
+  --border: 330 20% 90%;
+  --input: 330 20% 90%;
+  --ring: 330 85% 65%;
+
+  --radius: 1rem;
+} */
+
+:root{
+  --primary: #F159A5;
+  --background: 330 30% 98%;
+  --foreground: #3D2833;
+}
+
+body{
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: "Quicksand", sans-serif;
+}
+
+/* 
+:root {
+ 
+  --primary: 330 85% 65%;
+  
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 330 40% 96%;
+
+  --secondary-foreground: 330 60% 30%;
+
+  --accent: 34 50% 92%;
+  
+  --accent-foreground: 30 40% 20%;
+
+  --background: 330 30% 98%;
+  
+  --foreground: 330 20% 20%;
+
+
+  --card: 0 0% 100%;
+  --card-foreground: 330 20% 20%;
+
+  --muted: 330 20% 94%;
+  --muted-foreground: 330 10% 50%;
+
+  --border: 330 20% 90%; 
+  --input: 330 20% 90%;
+  --ring: 330 85% 65%;
+
+  --radius: 1rem;
+} */
+
+/* Selection styling (no Tailwind @apply needed) */
+::selection {
+  background: hsl(var(--primary) / 0.2);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* evita tokens custom si tu config todavía está inestable */
+    @apply bg-white text-slate-900 antialiased;
+    font-family: "Nunito", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Quicksand", sans-serif;
+    /* font-family: "Nunito", sans-serif; */
+    @apply font-bold text-slate-900 tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
