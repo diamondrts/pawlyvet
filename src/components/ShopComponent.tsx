@@ -32,7 +32,7 @@ const ShopSection = () => {
               ? staticData.products.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))
-              : // Esqueleto de carga (Skeleton)
+              :
                 Array(4) 
                   .fill(null)
                   .map((_, i) => (
