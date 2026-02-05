@@ -17,6 +17,7 @@ import img8 from "../components/img/img8.png";
 import Footer from "../pages/Footer"; import TeamComponent from "../components/TeamComponent";
 import TestimonialComponent from "../components/TestimonialComponent";
 import { WhatsAppBookAppointmentButton, WhatsAppInfoButton, WhatsAppLodgingButton } from "../components/ButtonsWs";
+import FallingImageCycle from "../components/FallingImageCycle";
 
 export default function Home() {
   const { data: services } = useServices();
@@ -96,7 +97,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex-1 relative">
+            {/* <div className="flex-1 relative">
               <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white rotate-2 hover:rotate-0 transition-transform duration-500">
                 <img
                   src={portada}
@@ -104,7 +105,13 @@ export default function Home() {
                   className="w-full h-auto object-cover"
                 />
               </div>
-              {/* Decorative blobs */}
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[accent] rounded-full blur-2xl -z-10" />
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-2xl -z-10" />
+            </div> */}
+
+            <div className="flex-1 relative">
+              <FallingImageCycle />
+
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[accent] rounded-full blur-2xl -z-10" />
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-2xl -z-10" />
             </div>
