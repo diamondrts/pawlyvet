@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
 
-const WHATSAPP_NUMBER = "+18492542695"
+const WHATSAPP_NUMBER = "+18099956516"
 
 function openWhatsApp(number: string, message: string) {
     const encoded = encodeURIComponent(message)
@@ -28,10 +28,11 @@ export function WhatsAppBookAppointmentButton({
     className?: string
 }) {
     const handleClick = () => {
-        const msg = [
-            "Hola, me gustaría agendar una cita.\n",
+        const saludo = getGreetingByHour()
+        const msg = [ 
+            `${saludo}, me gustaría agendar una cita.`,
             serviceName ? `Servicio: ${serviceName}.` : null,
-            "¿Me pueden indicar disponibilidad y el proceso para reservar?",
+            "\n¿Me pueden indicar disponibilidad y el proceso para reservar?",
         ]
             .filter(Boolean)
             .join(" ")
