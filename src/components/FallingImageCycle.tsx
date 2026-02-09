@@ -1,12 +1,11 @@
 "use client"
+import { useEffect, useMemo, useState } from "react";
+import * as React from "react";
+import { cn } from "../lib/utils";
 
-import * as React from "react"
-import { cn } from "../lib/utils"
-
-// ✅ Imágenes dentro del componente
-import portada from "./img/img4.png"
-import img8 from "./img/img8.png"
-import img3 from "./img/img3.png"
+import portada from "./img/img4.png";
+import img8 from "./img/img8.png";
+import img3 from "./img/img3.png";
 
 type Props = {
     intervalMs?: number
@@ -15,13 +14,19 @@ type Props = {
     imgClassName?: string
 }
 
+const BASE_TRANSFORM = "translate3d(0,0,0) rotate(0deg)";
+const ANIM_MS = 2000;
+// const ANIM_MS = 900;
+ 
 const FallingImageCycle: React.FC<Props> = ({
-    intervalMs = 1400,
+    intervalMs = 3000, 
+    // intervalMs = 2600, 
+    // intervalMs = 1400,
     className,
     frameClassName,
     imgClassName,
 }) => {
-    const images = React.useMemo(
+    const images = useMemo(
         () => [
             { src: portada, alt: "Pawly Vet 1" },
             { src: img8, alt: "Pawly Vet 2" },
@@ -31,43 +36,46 @@ const FallingImageCycle: React.FC<Props> = ({
     )
 
     const len = images.length
-    const [index, setIndex] = React.useState(0)
-    const [dropping, setDropping] = React.useState(false)
+    const [index, setIndex] = useState(0)
+    const [dropping, setDropping] = useState(false)
 
     const nextIndex = (index + 1) % len
     const current = images[index]
     const next = images[nextIndex]
 
+    useEffect(() => {
+        images.forEach((i) => {
+            const im = new Image()
+            im.src = i.src
+        })
+    }, [images])
+
+
     // dispara la caída cada intervalMs
-    React.useEffect(() => {
-        if (len <= 1) return
+    useEffect(() => {
+        if (len <= 1) return;
+        if (dropping) return;
+
         const t = window.setInterval(() => setDropping(true), intervalMs)
+
         return () => window.clearInterval(t)
-    }, [len, intervalMs])
+    }, [len, intervalMs, index, dropping])
 
     const handleDropEnd = () => {
-        // termina la animación -> avanzamos
         setIndex((i) => (i + 1) % len)
         setDropping(false)
     }
 
     return (
-        <div className={cn("relative", className)}>
-            {/* Keyframes locales (no necesitas tocar tailwind.config) */}
-            {/* <style>{`
-        @keyframes pawly-drop-left {
-          0%   { transform: rotate(2deg) translate(0, 0); opacity: 1; }
-          35%  { transform: rotate(-12deg) translate(-10px, 35px); opacity: 1; }
-          100% { transform: rotate(-28deg) translate(-45px, 220px); opacity: 0; }
-        }
-      `}</style> */}
-
-            <style>{`
+        // <div className={cn("relative w-full aspect-[4/3]", className)}>
+        <div className={cn("relative w-full aspect-[2.5/3]", className)}>
+            {/* transform: translate3d(0, 0, 0) rotate(3deg); */}
+            <style>{` 
   @keyframes pawly-drop-left {
     0% {
-      transform: translate3d(0, 0, 0) rotate(2deg);
-      opacity: 1;
-    }
+        transform: ${BASE_TRANSFORM};
+        opacity: 1;
+    } 
     35% {
       transform: translate3d(-12px, 55px, 0) rotate(-18deg);
       opacity: 1;
@@ -78,39 +86,57 @@ const FallingImageCycle: React.FC<Props> = ({
     }
   }
 `}</style>
-
-            {/* Carta de atrás (next) - queda quieta */}
+            {/* Back card */}
             <div
                 className={cn(
-                    "relative z-0 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white",
+                    "relative z-0 h-full w-full rounded-[3rem] overflow-hidden border-10 border-white",
                     frameClassName
                 )}
             >
                 <img
                     src={next.src}
                     alt={next.alt ?? "Next image"}
-                    className={cn("w-full h-auto object-cover", imgClassName)}
+                    className={cn("w-full h-full object-cover", imgClassName)}
                     draggable={false}
                 />
             </div>
 
-            {/* Carta de arriba (current) - cae girando a la izquierda */}
-            <div
+            {/* Top card */}
+            {/* <div
                 className={cn(
-                    "absolute inset-0 z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white",
+                    "absolute inset-0 z-10 h-full w-full rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white",
                     frameClassName
                 )}
                 style={{
                     transformOrigin: "50% 10%",
-                    // transformOrigin: "top left",
                     animation: dropping ? "pawly-drop-left 2000ms ease-in forwards" : "none",
+                }}
+                onAnimationEnd={dropping ? handleDropEnd : undefined}
+            > */}
+            <div
+                className={cn(
+                    "absolute inset-0 z-10 h-full w-full rounded-[3rem] overflow-hidden  border-10 border-white",
+                    frameClassName
+                )}
+                style={{
+                    transformOrigin: "50% 10%",
+                    // ✅ evita salto/blink inicial
+                    transform: dropping ? undefined : BASE_TRANSFORM,
+                    // ✅ reduce flicker
+                    willChange: "transform, opacity",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
+                    transformStyle: "preserve-3d",
+                    animation: dropping
+                        ? `pawly-drop-left ${ANIM_MS}ms cubic-bezier(.2,.9,.2,1) forwards`
+                        : "none",
                 }}
                 onAnimationEnd={dropping ? handleDropEnd : undefined}
             >
                 <img
                     src={current.src}
                     alt={current.alt ?? "Current image"}
-                    className={cn("w-full h-auto object-cover", imgClassName)}
+                    className={cn("w-full h-full object-cover", imgClassName)}
                     draggable={false}
                 />
             </div>
