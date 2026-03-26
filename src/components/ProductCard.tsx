@@ -1,5 +1,4 @@
 import { ShoppingBag } from "lucide-react";
-import { Button } from "./ui/button";
 import type { Product } from "../shared/schema";
  
 export default function ProductCard({ product }: { product: Product }) {
