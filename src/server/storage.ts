@@ -22,13 +22,10 @@ export const staticData = {
   ],
   team: [
     { id: 1, name: "Dra. Ana Howley", role: "CEO", imageUrl: "" },
-    { id: 2, name: "Yesica Jiménez", role: "médico veterinario", imageUrl: "" },
+    { id: 2, name: "Dra. Yesica Jiménez", role: "médico veterinario", imageUrl: "" },
     { id: 3, name: "Katia Mañan", role: "Secretaria Administrativa", imageUrl: "" },
     { id: 4, name: "Yerison Lorenzo", role: "Peluquería", imageUrl: "" },
-    // { id: 1, name: "Dra. Ana Howley", role: "CEO", imageUrl: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&auto=format&fit=crop&q=60" },
-    // { id: 2, name: "Pedro Ramírez", role: "Estilista Canino", imageUrl: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=500&auto=format&fit=crop&q=60" },
-    // { id: 3, name: "Sofía Martínez", role: "Asistente Veterinaria", imageUrl: "https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=500&auto=format&fit=crop&q=60" },
-
+    
   ],
 };
 

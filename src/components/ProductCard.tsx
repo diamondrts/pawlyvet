@@ -27,9 +27,9 @@ export default function ProductCard({ product }: { product: Product }) {
         <p className="text-muted-foreground text-sm line-clamp-2 mb-4 h-10">
           {product.description}
         </p>
-        <Button className="w-full rounded-xl bg-[#F8F0F4] text-[#7A1E4C] hover:bg-pink-500 hover:text-white transition-colors cursor-pointer">
+        {/* <Button className="w-full rounded-xl bg-[#F8F0F4] text-[#7A1E4C] hover:bg-pink-500 hover:text-white transition-colors cursor-pointer">
           Consultar
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
